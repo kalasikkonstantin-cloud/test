@@ -104,14 +104,14 @@
                   "name": "min",
                   "value": {
                     "type": "number",
-                    "number": -1
+                    "number": -0.5
                   }
                 },
                 {
                   "name": "max",
                   "value": {
                     "type": "number",
-                    "number": 1
+                    "number": 0.5
                   }
                 },
                 {
@@ -186,14 +186,14 @@
                   "name": "min",
                   "value": {
                     "type": "number",
-                    "number": -1
+                    "number": -0.5
                   }
                 },
                 {
                   "name": "max",
                   "value": {
                     "type": "number",
-                    "number": 1
+                    "number": 0.5
                   }
                 },
                 {
@@ -268,14 +268,14 @@
                   "name": "min",
                   "value": {
                     "type": "number",
-                    "number": -1
+                    "number": -0.5
                   }
                 },
                 {
                   "name": "max",
                   "value": {
                     "type": "number",
-                    "number": 1
+                    "number": 0.5
                   }
                 },
                 {
@@ -1146,7 +1146,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": "%math(%var_local(center_y)-%var_local(entity_y))"
+                "number": "%math((%var_local(center_y)+2)-%var_local(entity_y))"
               }
             }
           ]
@@ -1683,7 +1683,7 @@
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "target",
+                        "variable": "player_loc",
                         "scope": "local"
                       }
                     },
@@ -1691,731 +1691,730 @@
                       "name": "value",
                       "value": {
                         "type": "game_value",
-                        "game_value": "target_block_location",
+                        "game_value": "eye_location",
                         "selection": "{\"type\":\"default\"}"
                       }
                     }
                   ]
                 },
                 {
-                  "action": "if_variable_exists",
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Y"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Z"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
                   "values": [
                     {
                       "name": "variable",
                       "value": {
                         "type": "variable",
-                        "variable": "target",
+                        "variable": "yaw",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "yaw",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pitch",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "pitch",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "yaw_rad",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(yaw)*0.0174533)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pitch_rad",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(pitch)*0.0174533)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(0-sin(%var_local(yaw_rad))*cos(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(0-sin(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(cos(%var_local(yaw_rad))*cos(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "range",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 15
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "tx",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(px)+%var_local(dir_x)*%var_local(range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "ty",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(py)+%var_local(dir_y)*%var_local(range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "tz",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(pz)+%var_local(dir_z)*%var_local(range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "%player%_staff_thrown",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "%player%_staff_direction",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "text",
+                        "text": "out"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pname",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "name",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "steps",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 40
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(tx)-%var_local(px))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(ty)-%var_local(py))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(tz)-%var_local(pz))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
                         "scope": "local"
                       }
                     }
-                  ],
-                  "is_inverted": false,
-                  "operations": [
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "player_loc",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "game_value",
-                            "game_value": "location",
-                            "selection": "{\"type\":\"default\"}"
-                          }
-                        }
-                      ]
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_y",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "X"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "player_loc",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "px",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_z",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "Y"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "player_loc",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "py",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "Z"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "player_loc",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pz",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "y",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "X"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "target",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "tx",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "z",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "Y"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "target",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "ty",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "loc",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "play_electric_sound"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_remove_items",
+                  "values": [
+                    {
+                      "name": "items",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "item",
+                            "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
+                          },
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "x",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_get_coordinate",
-                      "values": [
-                        {
-                          "name": "type",
-                          "value": {
-                            "type": "enum",
-                            "enum": "Z"
-                          }
-                        },
-                        {
-                          "name": "location",
-                          "value": {
-                            "type": "variable",
-                            "variable": "target",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "tz",
-                            "scope": "local"
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "y",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "%player%_staff_thrown",
-                            "scope": "game"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": 1
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(py)+0.5)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "z",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "%player%_staff_direction",
-                            "scope": "game"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "text",
-                            "text": "out"
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_name",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pname",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "game_value",
-                            "game_value": "name",
-                            "selection": "{\"type\":\"default\"}"
-                          }
-                        }
-                      ]
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pname",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "spawn_staff_display"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
                     },
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "diff_x",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(tx)-%var_local(px))"
-                          }
-                        }
-                      ]
-                    },
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "x",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
                     {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "diff_y",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(ty)-%var_local(py))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "diff_z",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(tz)-%var_local(pz))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "dist",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(sqrt(%var_local(diff_x)*%var_local(diff_x)+%var_local(diff_y)*%var_local(diff_y)+%var_local(diff_z)*%var_local(diff_z)))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "steps",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(ceil(%var_local(dist)/1.5))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "step_x",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(diff_x)/%var_local(steps))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "step_y",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(diff_y)/%var_local(steps))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "step_z",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "number",
-                            "number": "%math(%var_local(diff_z)/%var_local(steps))"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "curr_x",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "px",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "curr_y",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "py",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "curr_z",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pz",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_set_all_coordinates",
-                      "values": [
-                        {
-                          "name": "x",
-                          "value": {
-                            "type": "variable",
-                            "variable": "px",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "y",
-                          "value": {
-                            "type": "variable",
-                            "variable": "py",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "z",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pz",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "loc",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "call_function",
-                      "values": [
-                        {
-                          "name": "function_name",
-                          "value": {
-                            "type": "text",
-                            "text": "play_electric_sound"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "player_remove_items",
-                      "values": [
-                        {
-                          "name": "items",
-                          "value": {
-                            "type": "array",
-                            "values": [
-                              {
-                                "type": "item",
-                                "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
-                              },
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {},
-                              {}
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "x",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "px",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "y",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "py",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "z",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pz",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "player_name",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "pname",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "call_function",
-                      "values": [
-                        {
-                          "name": "function_name",
-                          "value": {
-                            "type": "text",
-                            "text": "spawn_staff_display"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "px",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "x",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "set_variable_value",
-                      "values": [
-                        {
-                          "name": "variable",
-                          "value": {
-                            "type": "variable",
-                            "variable": "py",
-                            "scope": "local"
-                          }
-                        },
-                        {
-                          "name": "value",
-                          "value": {
-                            "type": "variable",
-                            "variable": "y",
-                            "scope": "local"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "action": "call_function",
-                      "values": [
-                        {
-                          "name": "function_name",
-                          "value": {
-                            "type": "text",
-                            "text": "jmcc.f0"
-                          }
-                        }
-                      ]
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "jmcc.f0"
+                      }
                     }
                   ]
                 }
@@ -2832,6 +2831,60 @@
                           "name": "variable",
                           "value": {
                             "type": "variable",
+                            "variable": "player_name",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pname",
+                            "scope": "local"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "call_function",
+                      "values": [
+                        {
+                          "name": "function_name",
+                          "value": {
+                            "type": "text",
+                            "text": "remove_staff_display"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "pname",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "value",
+                          "value": {
+                            "type": "variable",
+                            "variable": "player_name",
+                            "scope": "local"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_value",
+                      "values": [
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
                             "variable": "diff_x",
                             "scope": "local"
                           }
@@ -3217,7 +3270,7 @@
                               "name": "variable",
                               "value": {
                                 "type": "variable",
-                                "variable": "player_name",
+                                "variable": "loc",
                                 "scope": "local"
                               }
                             },
@@ -3225,8 +3278,28 @@
                               "name": "value",
                               "value": {
                                 "type": "variable",
-                                "variable": "pname",
+                                "variable": "curr_loc",
                                 "scope": "local"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "count",
+                                "scope": "local"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 3
                               }
                             }
                           ]
@@ -3238,7 +3311,7 @@
                               "name": "function_name",
                               "value": {
                                 "type": "text",
-                                "text": "remove_staff_display"
+                                "text": "show_electric_particles"
                               }
                             }
                           ]
@@ -3250,7 +3323,7 @@
                               "name": "variable",
                               "value": {
                                 "type": "variable",
-                                "variable": "pname",
+                                "variable": "curr_loc",
                                 "scope": "local"
                               }
                             },
@@ -3258,91 +3331,7 @@
                               "name": "value",
                               "value": {
                                 "type": "variable",
-                                "variable": "player_name",
-                                "scope": "local"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_value",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "x",
-                                "scope": "local"
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "variable",
-                                "variable": "curr_x",
-                                "scope": "local"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_value",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "y",
-                                "scope": "local"
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "variable",
-                                "variable": "curr_y",
-                                "scope": "local"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_value",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "z",
-                                "scope": "local"
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "variable",
-                                "variable": "curr_z",
-                                "scope": "local"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "action": "set_variable_value",
-                          "values": [
-                            {
-                              "name": "variable",
-                              "value": {
-                                "type": "variable",
-                                "variable": "player_name",
-                                "scope": "local"
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "variable",
-                                "variable": "pname",
+                                "variable": "loc",
                                 "scope": "local"
                               }
                             }
@@ -3988,7 +3977,7 @@
                           "name": "variable",
                           "value": {
                             "type": "variable",
-                            "variable": "jmcc.37",
+                            "variable": "jmcc.35",
                             "scope": "local"
                           }
                         }
@@ -4010,7 +3999,7 @@
                           "name": "location",
                           "value": {
                             "type": "variable",
-                            "variable": "jmcc.37",
+                            "variable": "jmcc.35",
                             "scope": "local"
                           }
                         }
@@ -4208,7 +4197,67 @@
                               "name": "variable",
                               "value": {
                                 "type": "variable",
-                                "variable": "radius",
+                                "variable": "min_radius",
+                                "scope": "local"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 0.5
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "max_radius",
+                                "scope": "local"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 4
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "height",
+                                "scope": "local"
+                              }
+                            },
+                            {
+                              "name": "value",
+                              "value": {
+                                "type": "number",
+                                "number": 6
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "action": "set_variable_value",
+                          "values": [
+                            {
+                              "name": "variable",
+                              "value": {
+                                "type": "variable",
+                                "variable": "spirals",
                                 "scope": "local"
                               }
                             },
@@ -4222,70 +4271,13 @@
                           ]
                         },
                         {
-                          "action": "repeat_while",
-                          "values": [
-                            {
-                              "name": "compare",
-                              "value": {
-                                "type": "number",
-                                "number": 360
-                              }
-                            },
-                            {
-                              "name": "value",
-                              "value": {
-                                "type": "variable",
-                                "variable": "angle",
-                                "scope": "local"
-                              }
-                            }
-                          ],
-                          "conditional": {
-                            "action": "if_variable_less",
-                            "values": [
-                              {
-                                "name": "compare",
-                                "value": {
-                                  "type": "number",
-                                  "number": 360
-                                }
-                              },
-                              {
-                                "name": "value",
-                                "value": {
-                                  "type": "variable",
-                                  "variable": "angle",
-                                  "scope": "local"
-                                }
-                              }
-                            ],
-                            "is_inverted": false,
-                            "operations": []
-                          },
-                          "is_inverted": false,
-                          "operations": [
-                            {
-                              "action": "call_function",
-                              "values": [
-                                {
-                                  "name": "function_name",
-                                  "value": {
-                                    "type": "text",
-                                    "text": "jmcc.f3"
-                                  }
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
                           "action": "call_function",
                           "values": [
                             {
                               "name": "function_name",
                               "value": {
                                 "type": "text",
-                                "text": "jmcc.f4"
+                                "text": "jmcc.f3"
                               }
                             }
                           ]
@@ -4299,7 +4291,7 @@
                           "name": "function_name",
                           "value": {
                             "type": "text",
-                            "text": "jmcc.f5"
+                            "text": "jmcc.f4"
                           }
                         }
                       ]
@@ -4624,7 +4616,7 @@
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.48",
+                    "variable": "jmcc.45",
                     "scope": "local"
                   }
                 }
@@ -4637,7 +4629,7 @@
                   "name": "location",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.48",
+                    "variable": "jmcc.45",
                     "scope": "local"
                   }
                 },
@@ -4702,7 +4694,7 @@
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.49",
+                    "variable": "jmcc.46",
                     "scope": "local"
                   }
                 }
@@ -4724,7 +4716,7 @@
                   "name": "location",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.49",
+                    "variable": "jmcc.46",
                     "scope": "local"
                   }
                 }
@@ -4761,7 +4753,7 @@
                   "name": "variable",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.50",
+                    "variable": "jmcc.47",
                     "scope": "local"
                   }
                 }
@@ -4774,7 +4766,7 @@
                   "name": "velocity",
                   "value": {
                     "type": "variable",
-                    "variable": "jmcc.50",
+                    "variable": "jmcc.47",
                     "scope": "local"
                   }
                 },
@@ -5448,7 +5440,7 @@
                   "name": "function_name",
                   "value": {
                     "type": "text",
-                    "text": "jmcc.f6"
+                    "text": "jmcc.f5"
                   }
                 }
               ]
@@ -5459,8 +5451,944 @@
       "event": "player_right_click"
     },
     {
-      "type": "function",
+      "type": "event",
       "position": 12,
+      "operations": [
+        {
+          "action": "if_player_is_holding",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "hand_slot",
+              "value": {
+                "type": "enum",
+                "enum": "EITHER_HAND"
+              }
+            },
+            {
+              "name": "comparison_mode",
+              "value": {
+                "type": "enum",
+                "enum": "EXACTLY"
+              }
+            }
+          ],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "if_variable_equals",
+              "values": [
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "number",
+                        "number": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "%player%_staff_thrown",
+                    "scope": "game"
+                  }
+                }
+              ],
+              "is_inverted": false,
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "eye_location",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "X"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Y"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_get_coordinate",
+                  "values": [
+                    {
+                      "name": "type",
+                      "value": {
+                        "type": "enum",
+                        "enum": "Z"
+                      }
+                    },
+                    {
+                      "name": "location",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_loc",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "yaw",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "yaw",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pitch",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "pitch",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "yaw_rad",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(yaw)*0.0174533)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pitch_rad",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(pitch)*0.0174533)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(0-sin(%var_local(yaw_rad))*cos(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(0-sin(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dir_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(cos(%var_local(yaw_rad))*cos(%var_local(pitch_rad)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "target",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "target_block_location",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "throw_range",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 10
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "tx",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(px)+%var_local(dir_x)*%var_local(throw_range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "ty",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(py)+%var_local(dir_y)*%var_local(throw_range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "tz",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(pz)+%var_local(dir_z)*%var_local(throw_range))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_exists",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "target",
+                        "scope": "local"
+                      }
+                    }
+                  ],
+                  "is_inverted": false,
+                  "operations": [
+                    {
+                      "action": "set_variable_get_coordinate",
+                      "values": [
+                        {
+                          "name": "type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "X"
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "variable",
+                            "variable": "target",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "tx",
+                            "scope": "local"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_get_coordinate",
+                      "values": [
+                        {
+                          "name": "type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "Y"
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "variable",
+                            "variable": "target",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "ty",
+                            "scope": "local"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "action": "set_variable_get_coordinate",
+                      "values": [
+                        {
+                          "name": "type",
+                          "value": {
+                            "type": "enum",
+                            "enum": "Z"
+                          }
+                        },
+                        {
+                          "name": "location",
+                          "value": {
+                            "type": "variable",
+                            "variable": "target",
+                            "scope": "local"
+                          }
+                        },
+                        {
+                          "name": "variable",
+                          "value": {
+                            "type": "variable",
+                            "variable": "tz",
+                            "scope": "local"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "%player%_staff_thrown",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "%player%_staff_direction",
+                        "scope": "game"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "text",
+                        "text": "throw"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pname",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "game_value",
+                        "game_value": "name",
+                        "selection": "{\"type\":\"default\"}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "steps",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 20
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(tx)-%var_local(px))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(ty)-%var_local(py))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "step_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math((%var_local(tz)-%var_local(pz))/%var_local(steps))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "curr_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "variable",
+                        "variable": "py",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "loc",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "play_electric_sound"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "player_remove_items",
+                  "values": [
+                    {
+                      "name": "items",
+                      "value": {
+                        "type": "array",
+                        "values": [
+                          {
+                            "type": "item",
+                            "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
+                          },
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {},
+                          {}
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "px",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(py)+0.5)"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pz",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "player_name",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "pname",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "jmcc.f6"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_right_click"
+    },
+    {
+      "type": "function",
+      "position": 13,
       "operations": [
         {
           "action": "set_variable_value",
@@ -5936,7 +6864,7 @@
                   "name": "value",
                   "value": {
                     "type": "number",
-                    "number": 3
+                    "number": 2
                   }
                 }
               ]
@@ -6097,232 +7025,7 @@
               }
             }
           ]
-        }
-      ],
-      "is_hidden": false,
-      "name": "jmcc.f0"
-    },
-    {
-      "type": "function",
-      "position": 13,
-      "operations": [
-        {
-          "action": "call_function",
-          "values": [
-            {
-              "name": "function_name",
-              "value": {
-                "type": "text",
-                "text": "spawn_staff_display"
-              }
-            }
-          ]
         },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "curr_x",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "x",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "curr_y",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "y",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "curr_z",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "z",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "pname",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "player_name",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "loc",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "curr_loc",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "count",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": 3
-              }
-            }
-          ]
-        },
-        {
-          "action": "call_function",
-          "values": [
-            {
-              "name": "function_name",
-              "value": {
-                "type": "text",
-                "text": "show_electric_particles"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "curr_loc",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "variable",
-                "variable": "loc",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "control_wait",
-          "values": [
-            {
-              "name": "duration",
-              "value": {
-                "type": "number",
-                "number": 1
-              }
-            },
-            {
-              "name": "time_unit",
-              "value": {
-                "type": "enum",
-                "enum": "TICKS"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_increment",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "step",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "number",
-              "value": {
-                "type": "number",
-                "number": 1
-              }
-            }
-          ]
-        }
-      ],
-      "is_hidden": false,
-      "name": "jmcc.f1"
-    },
-    {
-      "type": "function",
-      "position": 14,
-      "operations": [
         {
           "action": "player_give_items",
           "values": [
@@ -6429,6 +7132,114 @@
               }
             }
           ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "jmcc.f0"
+    },
+    {
+      "type": "function",
+      "position": 14,
+      "operations": [
+        {
+          "action": "control_wait",
+          "values": [
+            {
+              "name": "duration",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            },
+            {
+              "name": "time_unit",
+              "value": {
+                "type": "enum",
+                "enum": "TICKS"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_increment",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "number",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "jmcc.f1"
+    },
+    {
+      "type": "function",
+      "position": 15,
+      "operations": [
+        {
+          "action": "player_give_items",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "%player%_staff_thrown",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
         },
         {
           "action": "player_send_action_bar",
@@ -6477,7 +7288,7 @@
     },
     {
       "type": "function",
-      "position": 15,
+      "position": 16,
       "operations": [
         {
           "action": "set_variable_value",
@@ -6486,7 +7297,7 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "rad",
+                "variable": "total_angle",
                 "scope": "local"
               }
             },
@@ -6494,324 +7305,466 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": "%math(%var_local(angle)*0.0174533)"
+                "number": "%math(360*%var_local(spirals))"
               }
             }
           ]
         },
         {
-          "action": "set_variable_value",
+          "action": "repeat_while",
           "values": [
             {
-              "name": "variable",
+              "name": "compare",
               "value": {
                 "type": "variable",
-                "variable": "spiral_x",
+                "variable": "total_angle",
                 "scope": "local"
               }
             },
             {
               "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(curr_x)+cos(%var_local(rad))*%var_local(radius))"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_z",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(curr_z)+sin(%var_local(rad))*%var_local(radius))"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_random_number",
-          "values": [
-            {
-              "name": "min",
-              "value": {
-                "type": "number",
-                "number": 0
-              }
-            },
-            {
-              "name": "max",
-              "value": {
-                "type": "number",
-                "number": 5
-              }
-            },
-            {
-              "name": "integer",
-              "value": {
-                "type": "enum",
-                "enum": "TRUE"
-              }
-            },
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "jmcc.39",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_y",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(curr_y)+%var_local(jmcc.39))"
-              }
-            }
-          ]
-        },
-        {
-          "action": "set_variable_set_all_coordinates",
-          "values": [
-            {
-              "name": "x",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_x",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "y",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_y",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "z",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_z",
-                "scope": "local"
-              }
-            },
-            {
-              "name": "variable",
-              "value": {
-                "type": "variable",
-                "variable": "spiral_loc",
-                "scope": "local"
-              }
-            }
-          ]
-        },
-        {
-          "action": "player_display_particle",
-          "values": [
-            {
-              "name": "particle",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "particle",
-                    "particle_type": "electric_spark",
-                    "count": 1,
-                    "first_spread": 0,
-                    "second_spread": 0,
-                    "x_motion": 0,
-                    "y_motion": 0,
-                    "z_motion": 0
-                  },
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {}
-                ]
-              }
-            },
-            {
-              "name": "location",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "variable",
-                    "variable": "spiral_loc",
-                    "scope": "local"
-                  },
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {}
-                ]
-              }
-            }
-          ],
-          "selection": {
-            "type": "all_players"
-          }
-        },
-        {
-          "action": "player_display_particle",
-          "values": [
-            {
-              "name": "particle",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "particle",
-                    "particle_type": "wax_off",
-                    "count": 1,
-                    "first_spread": 0,
-                    "second_spread": 0,
-                    "x_motion": 0,
-                    "y_motion": 0,
-                    "z_motion": 0
-                  },
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {}
-                ]
-              }
-            },
-            {
-              "name": "location",
-              "value": {
-                "type": "array",
-                "values": [
-                  {
-                    "type": "variable",
-                    "variable": "spiral_loc",
-                    "scope": "local"
-                  },
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {},
-                  {}
-                ]
-              }
-            }
-          ],
-          "selection": {
-            "type": "all_players"
-          }
-        },
-        {
-          "action": "set_variable_value",
-          "values": [
-            {
-              "name": "variable",
               "value": {
                 "type": "variable",
                 "variable": "angle",
                 "scope": "local"
               }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "variable",
+                  "variable": "total_angle",
+                  "scope": "local"
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "angle",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rad",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(angle)*0.0174533)"
+                  }
+                }
+              ]
             },
             {
-              "name": "value",
-              "value": {
-                "type": "number",
-                "number": "%math(%var_local(angle)+30)"
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "progress",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(angle)/%var_local(total_angle))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "current_radius",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(min_radius)+(%var_local(progress)*(%var_local(max_radius)-%var_local(min_radius))))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_x)+cos(%var_local(rad))*%var_local(current_radius))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_z)+sin(%var_local(rad))*%var_local(current_radius))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_y)+(%var_local(progress)*%var_local(height)))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "spiral_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "electric_spark",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "spiral_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
               }
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "wax_off",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "spiral_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "end_rod",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "spiral_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "angle",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(angle)+20)"
+                  }
+                }
+              ]
             }
           ]
-        }
-      ],
-      "is_hidden": false,
-      "name": "jmcc.f3"
-    },
-    {
-      "type": "function",
-      "position": 16,
-      "operations": [
+        },
         {
           "action": "set_variable_value",
           "values": [
@@ -6848,7 +7801,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": 4
+                "number": 5
               }
             }
           ]
@@ -6922,7 +7875,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": 3
+                "number": 4
               }
             }
           ]
@@ -6942,7 +7895,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": 2
+                "number": 3
               }
             }
           ]
@@ -6987,7 +7940,7 @@
               "name": "duration",
               "value": {
                 "type": "number",
-                "number": 1
+                "number": 2
               }
             },
             {
@@ -7021,7 +7974,7 @@
         }
       ],
       "is_hidden": false,
-      "name": "jmcc.f4"
+      "name": "jmcc.f3"
     },
     {
       "type": "function",
@@ -7058,7 +8011,7 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "jmcc.41",
+                "variable": "jmcc.38",
                 "scope": "local"
               }
             }
@@ -7080,7 +8033,7 @@
               "name": "location",
               "value": {
                 "type": "variable",
-                "variable": "jmcc.41",
+                "variable": "jmcc.38",
                 "scope": "local"
               }
             }
@@ -7141,7 +8094,7 @@
               "name": "value",
               "value": {
                 "type": "number",
-                "number": 20
+                "number": 30
               }
             }
           ]
@@ -7154,6 +8107,173 @@
               "value": {
                 "type": "text",
                 "text": "show_electric_particles"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_give_items",
+          "values": [
+            {
+              "name": "items",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "item",
+                    "item": "{\"id\":\"stick\",\"tag\":{\"display\":{\"Name\":\"{\\\"text\\\":\\\"⚡ Посох Кашимо\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"Lore\":[\"{\\\"text\\\":\\\"Электрический посох\\\",\\\"color\\\":\\\"gray\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ЛКМ - бросок\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"SHIFT+ЛКМ - ускорение\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\",\"{\\\"text\\\":\\\"ПКМ в полёте - телепорт\\\",\\\"color\\\":\\\"aqua\\\",\\\"italic\\\":false}\"]}},\"Count\":1}"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "player_name",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "pname",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "remove_staff_display"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pname",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "player_name",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "%player%_staff_thrown",
+                "scope": "game"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "jmcc.f4"
+    },
+    {
+      "type": "function",
+      "position": 18,
+      "operations": [
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "blind_entities_in_radius"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "impact_loc",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "loc",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "control_wait",
+          "values": [
+            {
+              "name": "duration",
+              "value": {
+                "type": "number",
+                "number": 60
+              }
+            },
+            {
+              "name": "time_unit",
+              "value": {
+                "type": "enum",
+                "enum": "TICKS"
               }
             }
           ]
@@ -7271,7 +8391,7 @@
     },
     {
       "type": "function",
-      "position": 18,
+      "position": 19,
       "operations": [
         {
           "action": "call_function",
@@ -7280,7 +8400,7 @@
               "name": "function_name",
               "value": {
                 "type": "text",
-                "text": "blind_entities_in_radius"
+                "text": "spawn_staff_display"
               }
             }
           ]
@@ -7292,12 +8412,664 @@
               "name": "variable",
               "value": {
                 "type": "variable",
-                "variable": "impact_loc",
+                "variable": "px",
                 "scope": "local"
               }
             },
             {
               "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "x",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pz",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "z",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "pname",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "player_name",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "variable",
+                "variable": "steps",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "step",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "variable",
+                  "variable": "steps",
+                  "scope": "local"
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "step",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_x)+%var_local(step_x))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_y)+%var_local(step_y))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(curr_z)+%var_local(step_z))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_name",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pname",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "call_function",
+              "values": [
+                {
+                  "name": "function_name",
+                  "value": {
+                    "type": "text",
+                    "text": "remove_staff_display"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pname",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_name",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_x",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_y",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_z",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_name",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pname",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "call_function",
+              "values": [
+                {
+                  "name": "function_name",
+                  "value": {
+                    "type": "text",
+                    "text": "spawn_staff_display"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "x",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "y",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "z",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "pname",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_name",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "count",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": 2
+                  }
+                }
+              ]
+            },
+            {
+              "action": "call_function",
+              "values": [
+                {
+                  "name": "function_name",
+                  "value": {
+                    "type": "text",
+                    "text": "show_electric_particles"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "curr_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "step",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "x",
+              "value": {
+                "type": "variable",
+                "variable": "curr_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "variable",
+                "variable": "curr_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "variable",
+                "variable": "curr_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "jmcc.63",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            {
+              "name": "sound",
+              "value": {
+                "type": "sound",
+                "sound": "block.anvil.land",
+                "volume": 2,
+                "pitch": 0.5
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "jmcc.63",
+                "scope": "local"
+              }
+            }
+          ],
+          "selection": {
+            "type": "all_players"
+          }
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "x",
+              "value": {
+                "type": "variable",
+                "variable": "curr_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "variable",
+                "variable": "curr_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "variable",
+                "variable": "curr_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
               "value": {
                 "type": "variable",
                 "variable": "loc",
@@ -7307,20 +9079,122 @@
           ]
         },
         {
-          "action": "control_wait",
+          "action": "set_variable_value",
           "values": [
             {
-              "name": "duration",
+              "name": "variable",
               "value": {
-                "type": "number",
-                "number": 60
+                "type": "variable",
+                "variable": "radius",
+                "scope": "local"
               }
             },
             {
-              "name": "time_unit",
+              "name": "value",
               "value": {
-                "type": "enum",
-                "enum": "TICKS"
+                "type": "number",
+                "number": 5
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "damage",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 4
+              }
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "damage_entities_in_radius"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_set_all_coordinates",
+          "values": [
+            {
+              "name": "x",
+              "value": {
+                "type": "variable",
+                "variable": "curr_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "y",
+              "value": {
+                "type": "variable",
+                "variable": "curr_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "z",
+              "value": {
+                "type": "variable",
+                "variable": "curr_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "loc",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "count",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 20
+              }
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "show_electric_particles"
               }
             }
           ]
