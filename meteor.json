@@ -1,0 +1,3517 @@
+{
+  "handlers": [
+    {
+      "type": "process",
+      "position": 0,
+      "operations": [
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "X"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "start_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "start_x",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Y"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "start_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "start_y",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Z"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "start_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "start_z",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "X"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "target_x",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Y"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "target_y",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Z"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "target_z",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "diff_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(target_x)-%var_local(start_x))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "diff_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(target_y)-%var_local(start_y))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "diff_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(target_z)-%var_local(start_z))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "horizontal_dist_sq",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(diff_x)*%var_local(diff_x)+%var_local(diff_z)*%var_local(diff_z))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "horizontal_dist",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(sqrt(%var_local(horizontal_dist_sq)))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "total_dist_sq",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(horizontal_dist)*%var_local(horizontal_dist)+%var_local(diff_y)*%var_local(diff_y))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "total_dist",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(sqrt(%var_local(total_dist_sq)))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "steps_raw",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(total_dist)/2)"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "steps",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(ceil(%var_local(steps_raw)))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_less",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 10
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "steps",
+                "scope": "local"
+              }
+            }
+          ],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "steps",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": 10
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(diff_x)/%var_local(steps))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(diff_y)/%var_local(steps))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(%var_local(diff_z)/%var_local(steps))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "meteor_x",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "start_x",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "meteor_y",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "start_y",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "meteor_z",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "start_z",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "step",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "variable",
+                "variable": "steps",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "step",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "variable",
+                  "variable": "steps",
+                  "scope": "local"
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "step",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(meteor_x)+%var_local(step_x))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(meteor_y)+%var_local(step_y))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(meteor_z)+%var_local(step_z))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "meteor_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "flame",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "meteor_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "smoke",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "meteor_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "end_rod",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "meteor_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "step",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "meteor_flight"
+    },
+    {
+      "type": "process",
+      "position": 1,
+      "operations": [
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "X"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "x",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Y"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "y",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_get_coordinate",
+          "values": [
+            {
+              "name": "type",
+              "value": {
+                "type": "enum",
+                "enum": "Z"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "z",
+                "scope": "local"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            {
+              "name": "sound",
+              "value": {
+                "type": "sound",
+                "sound": "entity.ender_dragon.growl",
+                "volume": 5,
+                "pitch": 0.5
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            }
+          ],
+          "selection": {
+            "type": "all_players"
+          }
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "i",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 30
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "i",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "number",
+                  "number": 30
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "i",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "particle_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(y)+%var_local(i))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "particle_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "particle_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "flame",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "particle_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "i",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "player_display_particle",
+          "values": [
+            {
+              "name": "particle",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "particle",
+                    "particle_type": "explosion_emitter",
+                    "count": 1,
+                    "first_spread": 0,
+                    "second_spread": 0,
+                    "x_motion": 0,
+                    "y_motion": 0,
+                    "z_motion": 0
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "variable",
+                    "variable": "target_location",
+                    "scope": "local"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            }
+          ],
+          "selection": {
+            "type": "all_players"
+          }
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            {
+              "name": "sound",
+              "value": {
+                "type": "sound",
+                "sound": "entity.generic.explode",
+                "volume": 10,
+                "pitch": 1
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            }
+          ],
+          "selection": {
+            "type": "all_players"
+          }
+        },
+        {
+          "action": "player_play_sound",
+          "values": [
+            {
+              "name": "sound",
+              "value": {
+                "type": "sound",
+                "sound": "block.anvil.land",
+                "volume": 5,
+                "pitch": 0.3
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "type": "variable",
+                "variable": "target_location",
+                "scope": "local"
+              }
+            }
+          ],
+          "selection": {
+            "type": "all_players"
+          }
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "dx",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": -3
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 3
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "dx",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less_or_equals",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "number",
+                  "number": 3
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "dx",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dz",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": -3
+                  }
+                }
+              ]
+            },
+            {
+              "action": "repeat_while",
+              "values": [
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 3
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dz",
+                    "scope": "local"
+                  }
+                }
+              ],
+              "conditional": {
+                "action": "if_variable_less_or_equals",
+                "values": [
+                  {
+                    "name": "compare",
+                    "value": {
+                      "type": "number",
+                      "number": 3
+                    }
+                  },
+                  {
+                    "name": "value",
+                    "value": {
+                      "type": "variable",
+                      "variable": "dz",
+                      "scope": "local"
+                    }
+                  }
+                ],
+                "is_inverted": false,
+                "operations": []
+              },
+              "is_inverted": false,
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "check_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(x)+%var_local(dx))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "check_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(z)+%var_local(dz))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "variable",
+                        "variable": "check_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "variable",
+                        "variable": "y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "variable",
+                        "variable": "check_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "check_loc",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_random_number",
+                  "values": [
+                    {
+                      "name": "min",
+                      "value": {
+                        "type": "number",
+                        "number": 0
+                      }
+                    },
+                    {
+                      "name": "max",
+                      "value": {
+                        "type": "number",
+                        "number": 100
+                      }
+                    },
+                    {
+                      "name": "integer",
+                      "value": {
+                        "type": "enum",
+                        "enum": "TRUE"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "chance",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "if_variable_greater",
+                  "values": [
+                    {
+                      "name": "compare",
+                      "value": {
+                        "type": "number",
+                        "number": 30
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "variable",
+                        "variable": "chance",
+                        "scope": "local"
+                      }
+                    }
+                  ],
+                  "is_inverted": false,
+                  "operations": [
+                    {
+                      "action": "game_set_block",
+                      "values": [
+                        {
+                          "name": "block",
+                          "value": {
+                            "type": "text",
+                            "text": "fire"
+                          }
+                        },
+                        {
+                          "name": "locations",
+                          "value": {
+                            "type": "array",
+                            "values": [
+                              {
+                                "type": "variable",
+                                "variable": "check_loc",
+                                "scope": "local"
+                              },
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {},
+                              {}
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_increment",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "dz",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "number",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "dx",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "crater_dx",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": -2
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "crater_dx",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less_or_equals",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "number",
+                  "number": 2
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "crater_dx",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "crater_dz",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": -2
+                  }
+                }
+              ]
+            },
+            {
+              "action": "repeat_while",
+              "values": [
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 2
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "crater_dz",
+                    "scope": "local"
+                  }
+                }
+              ],
+              "conditional": {
+                "action": "if_variable_less_or_equals",
+                "values": [
+                  {
+                    "name": "compare",
+                    "value": {
+                      "type": "number",
+                      "number": 2
+                    }
+                  },
+                  {
+                    "name": "value",
+                    "value": {
+                      "type": "variable",
+                      "variable": "crater_dz",
+                      "scope": "local"
+                    }
+                  }
+                ],
+                "is_inverted": false,
+                "operations": []
+              },
+              "is_inverted": false,
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "crater_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(x)+%var_local(crater_dx))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "crater_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(%var_local(z)+%var_local(crater_dz))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_set_all_coordinates",
+                  "values": [
+                    {
+                      "name": "x",
+                      "value": {
+                        "type": "variable",
+                        "variable": "crater_x",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "value": {
+                        "type": "variable",
+                        "variable": "y",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "z",
+                      "value": {
+                        "type": "variable",
+                        "variable": "crater_z",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "crater_loc",
+                        "scope": "local"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "abs_dx",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": "%math(abs(%var_local(crater_dx)))"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "action": "call_function",
+                  "values": [
+                    {
+                      "name": "function_name",
+                      "value": {
+                        "type": "text",
+                        "text": "jmcc.f0"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "crater_dx",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "call_function",
+          "values": [
+            {
+              "name": "function_name",
+              "value": {
+                "type": "text",
+                "text": "jmcc.f1"
+              }
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "meteor_strike"
+    },
+    {
+      "type": "event",
+      "position": 2,
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "target",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "game_value",
+                "game_value": "target_block_location",
+                "selection": "{\"type\":\"default\"}"
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_exists",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "target",
+                "scope": "local"
+              }
+            }
+          ],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "game_value",
+                    "game_value": "location",
+                    "selection": "{\"type\":\"default\"}"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_coordinate",
+              "values": [
+                {
+                  "name": "type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "X"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_x",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_coordinate",
+              "values": [
+                {
+                  "name": "type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "Y"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_y",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_get_coordinate",
+              "values": [
+                {
+                  "name": "type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "Z"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_z",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(player_y)+15)"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "player_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_send_message",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&eМетеорит запущен!"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SPACES"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_send_action_bar",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&cБЕГИТЕ ОТСЮДА!"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SPACES"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_location",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target_location",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "start_process",
+              "values": [
+                {
+                  "name": "process_name",
+                  "value": {
+                    "type": "text",
+                    "text": "meteor_flight"
+                  }
+                },
+                {
+                  "name": "local_variables_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "COPY"
+                  }
+                },
+                {
+                  "name": "target_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "CURRENT_TARGET"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "start_location",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target_location",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 5
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target_location",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "start_process",
+              "values": [
+                {
+                  "name": "process_name",
+                  "value": {
+                    "type": "text",
+                    "text": "meteor_strike"
+                  }
+                },
+                {
+                  "name": "local_variables_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "COPY"
+                  }
+                },
+                {
+                  "name": "target_mode",
+                  "value": {
+                    "type": "enum",
+                    "enum": "CURRENT_TARGET"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "target_location",
+                    "scope": "local"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "player_send_message",
+              "values": [
+                {
+                  "name": "messages",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "text",
+                        "text": "&cСмотрите на блок, чтобы призвать метеорит!"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "merging",
+                  "value": {
+                    "type": "enum",
+                    "enum": "SPACES"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "event": "player_sneak"
+    },
+    {
+      "type": "event",
+      "position": 3,
+      "operations": [
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&eМетеоритный дождь активирован!"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "merging",
+              "value": {
+                "type": "enum",
+                "enum": "SPACES"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&e  Нажмите &cSHIFT&e, чтобы призвать метеорит!"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "merging",
+              "value": {
+                "type": "enum",
+                "enum": "SPACES"
+              }
+            }
+          ]
+        },
+        {
+          "action": "player_send_message",
+          "values": [
+            {
+              "name": "messages",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "text",
+                    "text": "&e  Метеорит прилетит сверху!"
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "merging",
+              "value": {
+                "type": "enum",
+                "enum": "SPACES"
+              }
+            }
+          ]
+        }
+      ],
+      "event": "player_join"
+    },
+    {
+      "type": "function",
+      "position": 4,
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "abs_dz",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": "%math(abs(%var_local(crater_dz)))"
+              }
+            }
+          ]
+        },
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "is_center",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "if_variable_less",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 2
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "abs_dx",
+                "scope": "local"
+              }
+            }
+          ],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "if_variable_less",
+              "values": [
+                {
+                  "name": "compare",
+                  "value": {
+                    "type": "number",
+                    "number": 2
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "variable",
+                    "variable": "abs_dz",
+                    "scope": "local"
+                  }
+                }
+              ],
+              "is_inverted": false,
+              "operations": [
+                {
+                  "action": "set_variable_value",
+                  "values": [
+                    {
+                      "name": "variable",
+                      "value": {
+                        "type": "variable",
+                        "variable": "is_center",
+                        "scope": "local"
+                      }
+                    },
+                    {
+                      "name": "value",
+                      "value": {
+                        "type": "number",
+                        "number": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "if_variable_equals",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "array",
+                "values": [
+                  {
+                    "type": "number",
+                    "number": 1
+                  },
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {}
+                ]
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "is_center",
+                "scope": "local"
+              }
+            }
+          ],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "text",
+                    "text": "air"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "crater_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_shift_coordinate",
+              "values": [
+                {
+                  "name": "distance",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                },
+                {
+                  "name": "type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "Y"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "crater_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "jmcc.14",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "text",
+                    "text": "air"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "jmcc.14",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_shift_coordinate",
+              "values": [
+                {
+                  "name": "distance",
+                  "value": {
+                    "type": "number",
+                    "number": -1
+                  }
+                },
+                {
+                  "name": "type",
+                  "value": {
+                    "type": "enum",
+                    "enum": "Y"
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "variable",
+                    "variable": "crater_loc",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "jmcc.15",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "text",
+                    "text": "magma_block"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "jmcc.15",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "else",
+          "values": [],
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "game_set_block",
+              "values": [
+                {
+                  "name": "block",
+                  "value": {
+                    "type": "text",
+                    "text": "air"
+                  }
+                },
+                {
+                  "name": "locations",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "crater_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "action": "set_variable_increment",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "crater_dz",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "number",
+              "value": {
+                "type": "number",
+                "number": 1
+              }
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "jmcc.f0"
+    },
+    {
+      "type": "function",
+      "position": 5,
+      "operations": [
+        {
+          "action": "set_variable_value",
+          "values": [
+            {
+              "name": "variable",
+              "value": {
+                "type": "variable",
+                "variable": "particles_tick",
+                "scope": "local"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "number",
+                "number": 0
+              }
+            }
+          ]
+        },
+        {
+          "action": "repeat_while",
+          "values": [
+            {
+              "name": "compare",
+              "value": {
+                "type": "number",
+                "number": 100
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "type": "variable",
+                "variable": "particles_tick",
+                "scope": "local"
+              }
+            }
+          ],
+          "conditional": {
+            "action": "if_variable_less",
+            "values": [
+              {
+                "name": "compare",
+                "value": {
+                  "type": "number",
+                  "number": 100
+                }
+              },
+              {
+                "name": "value",
+                "value": {
+                  "type": "variable",
+                  "variable": "particles_tick",
+                  "scope": "local"
+                }
+              }
+            ],
+            "is_inverted": false,
+            "operations": []
+          },
+          "is_inverted": false,
+          "operations": [
+            {
+              "action": "set_variable_random_number",
+              "values": [
+                {
+                  "name": "min",
+                  "value": {
+                    "type": "number",
+                    "number": -5
+                  }
+                },
+                {
+                  "name": "max",
+                  "value": {
+                    "type": "number",
+                    "number": 5
+                  }
+                },
+                {
+                  "name": "integer",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "jmcc.16",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(x)+%var_local(jmcc.16))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_random_number",
+              "values": [
+                {
+                  "name": "min",
+                  "value": {
+                    "type": "number",
+                    "number": 3
+                  }
+                },
+                {
+                  "name": "max",
+                  "value": {
+                    "type": "number",
+                    "number": 10
+                  }
+                },
+                {
+                  "name": "integer",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "jmcc.17",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(y)+%var_local(jmcc.17))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_random_number",
+              "values": [
+                {
+                  "name": "min",
+                  "value": {
+                    "type": "number",
+                    "number": -5
+                  }
+                },
+                {
+                  "name": "max",
+                  "value": {
+                    "type": "number",
+                    "number": 5
+                  }
+                },
+                {
+                  "name": "integer",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TRUE"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "jmcc.18",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_value",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "value",
+                  "value": {
+                    "type": "number",
+                    "number": "%math(%var_local(z)+%var_local(jmcc.18))"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_set_all_coordinates",
+              "values": [
+                {
+                  "name": "x",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_x",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "y",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_y",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "z",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_z",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "rand_loc",
+                    "scope": "local"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "player_display_particle",
+              "values": [
+                {
+                  "name": "particle",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "particle",
+                        "particle_type": "lava",
+                        "count": 1,
+                        "first_spread": 0,
+                        "second_spread": 0,
+                        "x_motion": 0,
+                        "y_motion": 0,
+                        "z_motion": 0
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                },
+                {
+                  "name": "location",
+                  "value": {
+                    "type": "array",
+                    "values": [
+                      {
+                        "type": "variable",
+                        "variable": "rand_loc",
+                        "scope": "local"
+                      },
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {},
+                      {}
+                    ]
+                  }
+                }
+              ],
+              "selection": {
+                "type": "all_players"
+              }
+            },
+            {
+              "action": "control_wait",
+              "values": [
+                {
+                  "name": "duration",
+                  "value": {
+                    "type": "number",
+                    "number": 2
+                  }
+                },
+                {
+                  "name": "time_unit",
+                  "value": {
+                    "type": "enum",
+                    "enum": "TICKS"
+                  }
+                }
+              ]
+            },
+            {
+              "action": "set_variable_increment",
+              "values": [
+                {
+                  "name": "variable",
+                  "value": {
+                    "type": "variable",
+                    "variable": "particles_tick",
+                    "scope": "local"
+                  }
+                },
+                {
+                  "name": "number",
+                  "value": {
+                    "type": "number",
+                    "number": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "is_hidden": false,
+      "name": "jmcc.f1"
+    }
+  ]
+}
